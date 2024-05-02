@@ -42,7 +42,7 @@ jobs:
         tag: static
         commit: master
         replacesArtifacts: true
-        token: ${{ secrets.unbound_workflow_token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: /usr/local/unbound-master-linux-x64.tar.gz
         draft: false
         body: |
