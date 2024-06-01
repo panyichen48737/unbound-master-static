@@ -22,8 +22,7 @@ jobs:
       run: |
         echo "/usr/local/unbound" | bash unbound_static_build.sh
         pushd /usr/local
-          sudo chmod 777 -R /usr/local/unbound
-          tar -zcf unbound-master-linux-x64.tar.gz unbound
+          sudo tar -zcf unbound-master-linux-x64.tar.gz unbound
         popd
 
     - name: Get latest version
@@ -49,6 +48,7 @@ jobs:
 
     - name: Commit and push branch
       run: |
+          sudo chmod 7777 -R /usr/local
           cd /usr/local || exit 1
           git init
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
