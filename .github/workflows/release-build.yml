@@ -50,7 +50,7 @@ jobs:
       run: |
        cd /usr/local/ || exit 1
           for file in $(ls); do
-       curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@lastes/${file}"
+       curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@latest/${file}"
           done
 
     - name: Set release output
