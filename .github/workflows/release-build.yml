@@ -49,7 +49,7 @@ jobs:
     - name: Commit and push branch
       run: |
           cd /usr/local
-          mkdir 1
+          sudo mkdir 1
           mv /usr/local/unbound-master-linux-x64.tar.gz /usr/local/1
           sudo chmod 7777 -R /usr/local
           cd /usr/local/1
