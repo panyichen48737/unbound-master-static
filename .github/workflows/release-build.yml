@@ -46,26 +46,5 @@ jobs:
           Latest commit from the master branch:
           https://github.com/NLnetLabs/unbound/commit/${{ env.VERSION }}
 
-    - name: Commit and push branch
-      run: |
-          cd /usr/local
-          sudo mkdir 1
-          sudo mv /usr/local/unbound-master-linux-x64.tar.gz /usr/local/1
-          sudo chmod 7777 -R /usr/local
-          cd /usr/local/1
-          git init
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git config --global init.defaultBranch master
-          git branch -m master
-          git checkout -b master
-          git add .
-          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f -u origin master
-
-    - name: Purge jsDelivr CDN
-      run: |
-        curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/unbound-master-linux-x64.tar.gz"
-
     - name: Set release output
       run: echo "release_id=${{ steps.create_release.outputs.release_id }}" >> $GITHUB_ENV
