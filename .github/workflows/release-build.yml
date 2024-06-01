@@ -48,15 +48,14 @@ jobs:
 
     - name: Commit and push branch
       run: |
-          sudo mv /usr/local/unbound-master-linux-x64.tar.gz /home/unbound-master-linux-x64.tar.gz
-          cd /home || exit 1
-          git init
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git checkout -b release
-          git add unbound-master-linux-x64.tar.gz
-          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
-          git push -f -u origin release
+          cd /usr/local || exit 1
+          sudo git init
+          sudo git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          sudo git config --local user.name "github-actions[bot]"
+          sudo git checkout -b release
+          sudo git add unbound-master-linux-x64.tar.gz
+          sudo git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          sudo git push -f -u origin release
 
     - name: Purge jsDelivr CDN
       run: |
