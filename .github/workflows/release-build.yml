@@ -48,8 +48,10 @@ jobs:
 
     - name: Purge jsDelivr CDN
       run: |
-       cd /usr/local/
-       curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@lastes/unbound-master-linux-x64.tar.gz"
+       cd /usr/local/ || exit 1
+          for file in $(ls); do
+       curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@lastes/${file}"
+          done
 
     - name: Set release output
       run: echo "release_id=${{ steps.create_release.outputs.release_id }}" >> $GITHUB_ENV
