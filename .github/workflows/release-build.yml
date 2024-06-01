@@ -48,8 +48,8 @@ jobs:
 
     - name: Commit and push branch
       run: |
-          cd /usr/local/ || exit 1
-          chmod 777 -R /usr/local/
+          mv /usr/local/unbound-master-linux-x64.tar.gz /home/unbound-master-linux-x64.tar.gz
+          cd /home || exit 1
           git init
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
