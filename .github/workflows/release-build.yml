@@ -48,13 +48,16 @@ jobs:
 
     - name: Commit and push branch
       run: |
+          cd /usr/local
+          mkdir 1
+          mv /usr/local/unbound-master-linux-x64.tar.gz /usr/local/1
           sudo chmod 7777 -R /usr/local
-          cd /usr/local || exit 1
+          cd /usr/local/1
           git init
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git checkout -b release
-          git add unbound-master-linux-x64.tar.gz
+          git add .
           git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           git push -f -u origin release
 
