@@ -50,7 +50,7 @@ jobs:
       run: |
           cd /usr/local
           sudo mkdir 1
-          mv /usr/local/unbound-master-linux-x64.tar.gz /usr/local/1
+          sudo mv /usr/local/unbound-master-linux-x64.tar.gz /usr/local/1
           sudo chmod 7777 -R /usr/local
           cd /usr/local/1
           git init
