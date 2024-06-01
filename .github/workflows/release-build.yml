@@ -46,5 +46,12 @@ jobs:
           Latest commit from the master branch:
           https://github.com/NLnetLabs/unbound/commit/${{ env.VERSION }}
 
+    - name: Purge jsDelivr CDN
+      run: |
+       cd ./usr/local/ || exit 1
+          for file in $(ls); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}/${file}"
+          done
+
     - name: Set release output
       run: echo "release_id=${{ steps.create_release.outputs.release_id }}" >> $GITHUB_ENV
