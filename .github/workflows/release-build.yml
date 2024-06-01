@@ -22,7 +22,8 @@ jobs:
       run: |
         echo "/usr/local/unbound" | bash unbound_static_build.sh
         pushd /usr/local
-          tar -zcf unbound-master-linux-x64.tar.gz unbound
+          chmod 777 -R /usr/local/unbound
+          sudo tar -zcf unbound-master-linux-x64.tar.gz unbound
         popd
 
     - name: Get latest version
