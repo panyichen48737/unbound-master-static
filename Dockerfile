@@ -15,7 +15,7 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
       libexpat1 \
       libprotobuf-c-dev \
       protobuf-c-compiler && \
-    echo "/opt/unbound" | bash unbound_static_build.sh && \
+    echo "/opt/unbound" | bash /unbound_static_build.sh && \
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
     apt-get purge -y --auto-remove \
       $build_deps && \
