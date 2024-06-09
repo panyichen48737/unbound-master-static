@@ -9,8 +9,8 @@ RUN build_deps="curl tar" && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $build_deps && \
     curl -O https://github.com/panyichen48737/unbound-master-static/releases/download/static/unbound-master-linux-x64.tar.gz && \
-    tar -zxvf unbound-master-linux-x64.tar.gz
-    mv unbound /opt
+    tar -zxvf unbound-master-linux-x64.tar.gz && \
+    mv unbound /opt && \
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
     apt-get purge -y --auto-remove \
       $build_deps && \
