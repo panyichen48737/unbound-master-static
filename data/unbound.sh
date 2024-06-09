@@ -42,7 +42,7 @@ if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
 server:
   username: ""
   chroot: ""
-  logfile: "/data/dnslogs/unbound.log"
+  logfile: "/opt/unbound/etc/unbound/unbound.log"
   log-queries: no
   log-servfail: yes
   log-time-ascii: yes
@@ -73,8 +73,8 @@ server:
   so-reuseport: yes
   infra-cache-numhosts: 10000
   unwanted-reply-threshold: 10000000
-  so-rcvbuf: 2m
-  so-sndbuf: 2m
+  so-rcvbuf: 1024
+  so-sndbuf: 1024
   msg-cache-size: 64m
   key-cache-size: 64m
   neg-cache-size: 64m
