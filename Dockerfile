@@ -2,7 +2,7 @@ FROM debian:bookworm as unbound
 
 WORKDIR /tmp/src
 
-COPY unbound_static_build.sh /
+COPY / /
 
 RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make" && \
     set -x && \
