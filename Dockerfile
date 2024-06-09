@@ -4,7 +4,7 @@ WORKDIR /tmp/src
 
 COPY / /
 
-RUN build_deps="curl wget unzip gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make cmake build-essential ca-certificates curl dirmngr gnupg libidn2-0-dev libssl-dev" && \
+RUN build_deps="curl wget unzip gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make cmake build-essential ca-certificates curl dirmngr gnupg libidn2-0-dev libssl-dev clang" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $build_deps \
