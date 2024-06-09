@@ -6,7 +6,7 @@ RUN build_deps="wget tar" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $build_deps && \
-    wget -q https://github.com/panyichen48737/unbound-master-static/releases/download/static/unbound-master-linux-x64.tar.gz && \
+    wget https://github.com/panyichen48737/unbound-master-static/releases/download/static/unbound-master-linux-x64.tar.gz --no-check-certificate&& \
     tar -zxvf unbound-master-linux-x64.tar.gz && \
     mv unbound /opt && \
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
