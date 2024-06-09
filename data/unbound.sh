@@ -73,8 +73,8 @@ server:
   so-reuseport: yes
   infra-cache-numhosts: 10000
   unwanted-reply-threshold: 10000000
-  so-rcvbuf: 4m
-  so-sndbuf: 4m
+  so-rcvbuf: 3m
+  so-sndbuf: 3m
   msg-cache-size: 64m
   key-cache-size: 64m
   neg-cache-size: 64m
