@@ -1,10 +1,12 @@
 name: build_docker
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
   push:
-    branches: [main]
-  release:
-    types: [created] # 表示在创建新的 Release 时触发
+    branches:
+      - master
 
 jobs:
   build_docker:
