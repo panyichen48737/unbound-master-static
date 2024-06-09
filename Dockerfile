@@ -24,3 +24,19 @@ RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make
         /tmp/* \
         /var/tmp/* \
         /var/lib/apt/lists/*
+
+
+COPY data/ /
+
+RUN chmod +x /unbound.sh
+
+WORKDIR /opt/unbound/
+
+ENV PATH /opt/unbound/sbin:"$PATH"
+
+EXPOSE 5334/tcp
+EXPOSE 5334/udp
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=10s --retries=3 CMD drill @127.0.0.1@5334 baidu.com || exit 1
+
+CMD ["/unbound.sh"]
