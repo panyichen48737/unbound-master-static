@@ -42,7 +42,7 @@ if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
 server:
   username: ""
   chroot: ""
-  logfile: "/data/dnslogs/unbound.log"
+  logfile: "/opt/unbound/etc/unbound/unbound.log"
   log-queries: no
   log-servfail: yes
   log-time-ascii: yes
