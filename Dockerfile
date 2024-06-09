@@ -2,7 +2,7 @@ FROM debian:bookworm
 
 WORKDIR /tmp/src
 
-RUN build_deps="wget tar" && \
+RUN build_deps="wget" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $build_deps && \
