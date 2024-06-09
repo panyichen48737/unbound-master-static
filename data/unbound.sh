@@ -31,7 +31,7 @@ else
     slabs=4
 fi
 
-if [ ! -f /usr/local/unbound/etc/unbound/unbound.conf ]; then
+if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
     sed \
         -e "s/@MSG_CACHE_SIZE@/${msg_cache_size}/" \
         -e "s/@RR_CACHE_SIZE@/${rr_cache_size}/" \
@@ -115,6 +115,6 @@ cachedb:
 EOT
 fi
 
-mkdir -p /usr/local/unbound/etc/unbound && \
+mkdir -p /opt/unbound/etc/unbound && \
 
-exec /usr/local/unbound/sbin/unbound -d -c /usr/local/unbound/etc/unbound/unbound.conf
+exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
