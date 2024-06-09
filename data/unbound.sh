@@ -42,7 +42,7 @@ if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
 server:
   username: ""
   chroot: ""
-  logfile: "/opt/unbound/etc/unbound/unbound.log"
+  logfile: "/data/dnslogs/unbound.log"
   log-queries: no
   log-servfail: yes
   log-time-ascii: yes
@@ -56,11 +56,11 @@ server:
   do-udp: yes
   do-tcp: yes
   do-daemonize: no
-  num-threads: @THREADS@
-  msg-cache-slabs: @SLABS@
-  rrset-cache-slabs: @SLABS@
-  key-cache-slabs: @SLABS@
-  infra-cache-slabs: @SLABS@
+  num-threads: 2
+  msg-cache-slabs: 4
+  rrset-cache-slabs: 4
+  key-cache-slabs: 4
+  infra-cache-slabs: 4
   
   aggressive-nsec: yes
   hide-trustanchor: yes
@@ -75,10 +75,10 @@ server:
   unwanted-reply-threshold: 10000000
   so-rcvbuf: 4m
   so-sndbuf: 4m
-  msg-cache-size: @MSG_CACHE_SIZE@
+  msg-cache-size: 64m
   key-cache-size: 64m
   neg-cache-size: 64m
-  rrset-cache-size: @RR_CACHE_SIZE@
+  rrset-cache-size: 128m
   outgoing-range: 8192
   num-queries-per-thread: 4096
   outgoing-num-tcp: 1024
@@ -115,6 +115,7 @@ cachedb:
 EOT
 fi
 
-mkdir -p /opt/unbound/etc/unbound && \
-
+mkdir -p /opt/unbound/etc/unbound
+sudo sysctl -w net.core.rmem_max=4194304
+sudo sysctl -w net.core.wmem_max=4194304
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
