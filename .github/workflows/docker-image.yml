@@ -35,5 +35,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            panyichen1116/${{ github.repository }}:${{ github.ref_name }}
-            panyichen1116/${{ github.repository }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/unbound-master-static:${{ github.ref_name }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/unbound-master-static:latest
