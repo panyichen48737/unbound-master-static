@@ -23,9 +23,9 @@ COPY data/ /
 
 RUN chmod +x /unbound.sh
 
-WORKDIR /usr/local/unbound/
+WORKDIR /opt/unbound/
 
-ENV PATH /usr/local/unbound/sbin:"$PATH"
+ENV PATH /opt/unbound/sbin:"$PATH"
 
 EXPOSE 5334/tcp
 EXPOSE 5334/udp
