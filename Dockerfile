@@ -2,8 +2,6 @@ FROM debian:bookworm
 
 WORKDIR /tmp/src
 
-COPY / /
-
 RUN build_deps="wget tar" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
