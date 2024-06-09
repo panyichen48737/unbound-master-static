@@ -1,4 +1,4 @@
-FROM ubuntu:bookworm as unbound
+FROM debian:bookworm as unbound
 
 WORKDIR /tmp/src
 
