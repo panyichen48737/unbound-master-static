@@ -12,6 +12,8 @@ RUN build_deps="wget" && \
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
     apt-get purge -y --auto-remove \
       $build_deps && \
+    sysctl -w net.core.rmem_max=4194304 && \
+    sysctl -w net.core.wmem_max=4194304 && \
     rm -rf \
         /opt/unbound/share/man \
         /tmp/* \
