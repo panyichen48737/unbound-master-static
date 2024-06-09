@@ -1,21 +1,16 @@
-FROM ubuntu:latest
+FROM debian:bookworm
 
 WORKDIR /tmp/src
 
 COPY / /
 
-RUN build_deps="curl wget unzip gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make cmake build-essential ca-certificates curl dirmngr gnupg libidn2-0-dev libssl-dev clang flex bison" && \
+RUN build_deps="curl tar" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
-      $build_deps \
-      bsdmainutils \
-      ca-certificates \
-      ldnsutils \
-      libevent-2.1-7 \
-      libexpat1 \
-      libprotobuf-c-dev \
-      protobuf-c-compiler && \
-    echo "/usr/local/unbound" | bash /unbound_static_build.sh && \
+      $build_deps && \
+    curl -O https://github.com/panyichen48737/unbound-master-static/releases/download/static/unbound-master-linux-x64.tar.gz && \
+    tar -zxvf unbound-master-linux-x64.tar.gz
+    mv unbound /opt
     mv /opt/unbound/etc/unbound/unbound.conf /opt/unbound/etc/unbound/unbound.conf.example && \
     apt-get purge -y --auto-remove \
       $build_deps && \
