@@ -40,7 +40,7 @@ jobs:
         commit: master
         replacesArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
-        artifacts: /usr/local/unbound-master-linux-x64.tar.gz
+        artifacts: /opt/unbound-master-linux-x64.tar.gz
         draft: false
         body: |
           Latest commit from the master branch:
