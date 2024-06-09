@@ -4,7 +4,7 @@ WORKDIR /tmp/src
 
 COPY / /
 
-RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make" && \
+RUN build_deps="curl gcc libc-dev libevent-dev libexpat1-dev libnghttp2-dev make cmake" && \
     set -x && \
     DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y --no-install-recommends \
       $build_deps \
