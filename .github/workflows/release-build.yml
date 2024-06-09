@@ -21,7 +21,7 @@ jobs:
     - name: Build unbound
       run: |
         echo "/opt/unbound" | bash unbound_static_build.sh
-        pushd /opt/unbound
+        pushd /opt
           sudo tar -zcf unbound-master-linux-x64.tar.gz unbound
         popd
 
