@@ -30,6 +30,4 @@ ENV PATH /opt/unbound/sbin:"$PATH"
 EXPOSE 5334/tcp
 EXPOSE 5334/udp
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=10s --retries=3 CMD drill @127.0.0.1@5334 baidu.com || exit 1
-
 CMD ["/unbound.sh"]
