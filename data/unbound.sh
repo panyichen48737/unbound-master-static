@@ -118,4 +118,5 @@ fi
 mkdir -p /opt/unbound/etc/unbound
 sysctl -w net.core.rmem_max=4194304
 sysctl -w net.core.wmem_max=4194304
+sysctl -p
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
