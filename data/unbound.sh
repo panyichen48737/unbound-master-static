@@ -105,11 +105,11 @@ server:
   
   forward-zone:
    name: "."
-   forward-addr: 127.0.0.1@5335
+   forward-addr: 172.16.0.5@5335
 
 cachedb:
   backend: "redis"
-  redis-server-host: 127.0.0.1
+  redis-server-host: 172.16.0.2
   redis-server-port: 6379
   redis-timeout: 100
 EOT
