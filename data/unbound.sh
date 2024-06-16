@@ -31,13 +31,10 @@ else
     slabs=4
 fi
 
+mkdir -p /opt/unbound/etc/unbound
+
 if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
-    sed \
-        -e "s/@MSG_CACHE_SIZE@/${msg_cache_size}/" \
-        -e "s/@RR_CACHE_SIZE@/${rr_cache_size}/" \
-        -e "s/@THREADS@/${threads}/" \
-        -e "s/@SLABS@/${slabs}/" \
-        > /opt/unbound/etc/unbound/unbound.conf << EOT
+        /opt/unbound/etc/unbound/unbound.conf << EOT
 # The server clause sets the main parameters.
 server:
   username: ""
@@ -115,5 +112,5 @@ cachedb:
 EOT
 fi
 
-mkdir -p /opt/unbound/etc/unbound
+
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
