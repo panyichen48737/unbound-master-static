@@ -83,10 +83,10 @@ server:
    forward-addr: 172.16.0.5@5335
   
   cachedb:
-  backend: "redis"
-  redis-server-host: 172.16.0.2
-  redis-server-port: 6379
-  redis-timeout: 100
+   backend: "redis"
+   redis-server-host: 172.16.0.2
+   redis-server-port: 6379
+   redis-timeout: 100
   
 EOT
 fi
