@@ -3,7 +3,7 @@
 mkdir -p /opt/unbound/etc/unbound
 
 if [ ! -f /opt/unbound/etc/unbound/unbound.conf ]; then
-        /opt/unbound/etc/unbound/unbound.conf << EOT
+        cat <<EOT > /opt/unbound/etc/unbound/unbound.conf
 # The server clause sets the main parameters.
 server:
   username: ""
