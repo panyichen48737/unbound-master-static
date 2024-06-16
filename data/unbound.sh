@@ -116,7 +116,5 @@ EOT
 fi
 
 mkdir -p /opt/unbound/etc/unbound
-echo "net.core.rmem_max=4194304" | tee -a /etc/sysctl.conf
-echo "net.core.wmem_max=4194304" | tee -a /etc/sysctl.conf
-sysctl -p
+sysctl -a
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
