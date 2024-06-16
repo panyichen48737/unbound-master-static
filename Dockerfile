@@ -18,10 +18,6 @@ RUN build_deps="wget" && \
         /var/tmp/* \
         /var/lib/apt/lists/*
 
-RUN echo "net.core.rmem_max=4194304" | tee -a /etc/sysctl.conf && \
-    echo "net.core.wmem_max=4194304" | tee -a /etc/sysctl.conf && \
-    sysctl -p && \
-
 COPY data/ /
 
 RUN chmod +x /unbound.sh
