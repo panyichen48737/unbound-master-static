@@ -116,5 +116,4 @@ EOT
 fi
 
 mkdir -p /opt/unbound/etc/unbound
-sysctl -a
 exec /opt/unbound/sbin/unbound -d -c /opt/unbound/etc/unbound/unbound.conf
