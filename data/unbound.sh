@@ -81,8 +81,8 @@ server:
   so-rcvbuf: 4m
   so-sndbuf: 4m
   msg-cache-size: @MSG_CACHE_SIZE@
-  key-cache-size: 64m
-  neg-cache-size: 64m
+  key-cache-size: @MSG_CACHE_SIZE@
+  neg-cache-size: @MSG_CACHE_SIZE@
   rrset-cache-size: @RR_CACHE_SIZE@
   
   outgoing-range: 8192
