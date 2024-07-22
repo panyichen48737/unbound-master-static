@@ -24,7 +24,7 @@ RUN chmod +x /run.sh
 
 WORKDIR /opt/unbound/
 
-ENV PATH /opt/unbound/sbin:"$PATH"
+ENV PATH=/opt/unbound/sbin:"$PATH"
 
 EXPOSE 5334/tcp
 EXPOSE 5334/udp
