@@ -120,7 +120,7 @@ server:
   
   cachedb:
    backend: "redis"
-   redis-server-host: 172.16.0.3
+   redis-server-host: 172.16.0.2
    redis-server-port: 6379
    redis-timeout: 100
   
